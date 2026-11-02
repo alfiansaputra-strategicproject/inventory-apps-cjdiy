@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell($json = Get-Content \"$env:USERPROFILE\\\\Downloads\\\\inventory-apps-513503-86d3a4b82c2c.json\" -Raw; $minified = \\($json | ConvertFrom-Json | ConvertTo-Json -Compress -Depth 10\\); Write-Host \"client_email: $\\(\\($json | ConvertFrom-Json\\).client_email\\)\"; Write-Host \"Minified length: $\\($minified.Length\\) chars\")",
+      "PowerShell($lines = [System.IO.File]::ReadAllLines\\(\"C:\\\\Users\\\\alfian.saputra\\\\Documents\\\\[CJDIY] Application\\\\Inventory Apps\\\\backend\\\\.env\"\\); foreach \\($line in $lines\\) { if \\($line -match '^GOOGLE_SERVICE_ACCOUNT_KEY='\\) { Write-Host \"GOOGLE_SERVICE_ACCOUNT_KEY=[OK - $\\($line.Length\\) chars]\" } else { Write-Host $line } })",
+      "PowerShell($json = Get-Content \"$env:USERPROFILE\\\\Downloads\\\\inventory-apps-513503-86d3a4b82c2c.json\" -Encoding UTF8; $minified = \\($json -join \"\" | ConvertFrom-Json | ConvertTo-Json -Compress -Depth 10\\); Write-Host $minified.Substring\\(0, 60\\))",
+      "PowerShell(\\(Get-Command git -ErrorAction SilentlyContinue\\).Source)"
+    ]
+  }
+}
