@@ -1,14 +1,15 @@
-const { google } = require('googleapis')
+const { sheets: sheetsClient } = require('@googleapis/sheets')
+const { GoogleAuth } = require('google-auth-library')
 
 function getAuth() {
-  return new google.auth.GoogleAuth({
+  return new GoogleAuth({
     credentials: JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_KEY),
     scopes: ['https://www.googleapis.com/auth/spreadsheets'],
   })
 }
 
 function getSheets() {
-  return google.sheets({ version: 'v4', auth: getAuth() })
+  return sheetsClient({ version: 'v4', auth: getAuth() })
 }
 
 const SPREADSHEET_ID = process.env.SPREADSHEET_ID
